@@ -1,6 +1,9 @@
 const express = require('express');
 const logger = require('winston');
+const mongoose = require('mongoose');
+
 const app = express();
+mongoose.connect('mongodb://localhost/contacts');
 
 app.use(express.static(__dirname + '/dist'));
 
