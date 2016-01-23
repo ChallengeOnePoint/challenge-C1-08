@@ -2,7 +2,48 @@
 import React, {PropTypes} from 'react';
 /* eslint no-unused-vars: 1 */
 import {connect} from 'react-redux';
-import ContactList from './ContactList.jsx';
+
+const ContactList = ({contacts}) => {
+  const list = contacts.slice(0, 100).map((contact, index) => {
+    const {
+      number,
+      street,
+      city,
+      postcode,
+      firstname,
+      lastname,
+      } = contact;
+
+    return (
+      <Contact
+        key={index}
+        id={index}
+        number={number}
+        street={street}
+        city={city}
+        postCode={postcode}
+        firstName={firstname}
+        lastName={lastname}/>
+    );
+  });
+
+  return (
+    <div className="contacts">
+      {list}
+    </div>
+  );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+}
+
+function select(state) {
+  return {
+    contacts: state.contacts,
+  }
+}
+
 
 const Search = ({contacts}) => {
 
@@ -10,11 +51,9 @@ const Search = ({contacts}) => {
 
   function search(e) {
     const queryString = e.target.value;
-    debugger;
     contacts.map((contact) => {
       const {firstName, lastname} = contact;
-      debugger;
-      if (firstName.includes(queryString) || lastName.includes(queryString)) {
+      if (firstName.includes(queryString) || lastname.includes(queryString)) {
         result.push(contact);
       }
     })
