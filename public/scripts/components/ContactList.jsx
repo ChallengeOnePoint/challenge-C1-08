@@ -29,9 +29,9 @@ const ContactList = ({contacts}) => {
   });
 
   return (
-    <ul className="contacts">
+    <div className="contacts">
       {list}
-    </ul>
+    </div>
   );
 };
 

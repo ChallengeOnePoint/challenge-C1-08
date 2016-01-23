@@ -12,16 +12,16 @@ const Contact = ({id, firstName, lastName, number, street, city, postCode}) => {
   };
 
   return (
-    <li className="contacts-line">
-      <div><span className="contacts-line-label">Nom</span> : <span>{lastName}</span></div>
-      <div><span className="contacts-line-label">Prénom</span> : <span>{firstName}</span></div>
-      <div><span className="contacts-line-label">Adresse</span> : <span>{number} {street} <br/> {postCode} {city}</span>
+    <div className="contact">
+      <div className="contact-image"><Map /></div>
+      <div className="contact-header">
+        {firstName} {lastName}
       </div>
-      <div>
-        <button onClick={clickUpdateContact}>Mettre à jour</button>
-        <Map />
+      <div className="contact-copy">
+        <p>{number} {street} <br/> {postCode} {city}</p>
+        <p><button onClick={clickUpdateContact}>Mettre à jour</button></p>
       </div>
-    </li>
+    </div>
   );
 };
 
