@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const logger = require('winston');
 const mongoose = require('mongoose');
@@ -15,6 +16,9 @@ db.once('open', () => {
 
 // serve static files
 app.use(express.static(__dirname + '/dist'));
+
+// parse body 
+app.use(bodyParser.json());
 
 // serve routes
 app.use(router);
