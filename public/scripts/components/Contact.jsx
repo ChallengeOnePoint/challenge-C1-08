@@ -1,13 +1,22 @@
 import React, {PropTypes} from 'react';
 
-const Contact = ({firstname, lastname, number, street, city, postcode}) => {
+const Contact = ({firstName, lastName, number, street, city, postCode}) => {
   return (
     <li>
-      <div>Nom : <span>{lastname}</span></div>
-      <div>Prénom : <span>{firstname}</span></div>
-      <div>Adresse : <span>{number}{street}{city}{postcode}</span></div>
+      <div>Nom : <span>{lastName}</span></div>
+      <div>Prénom : <span>{firstName}</span></div>
+      <div>Adresse : <span>{number}{street}{city}{postCode}</span></div>
     </li>
   );
 };
+
+Contact.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  number: PropTypes.string,
+  street: PropTypes.string,
+  city: PropTypes.string,
+  postCode: PropTypes.string,
+}
 
 export default Contact;
