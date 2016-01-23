@@ -2,7 +2,7 @@
 import React, {PropTypes} from 'react';
 /* eslint no-unused-vars: 1 */
 import Contact from './Contact.jsx';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
 const ContactList = ({contacts}) => {
   const list = contacts.slice(0, 100).map((contact, index) => {

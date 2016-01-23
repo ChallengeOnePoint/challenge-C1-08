@@ -1,8 +1,14 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import serialize from 'form-serialize';
 
-const Form = ({firstName, lastName, number, street, city, postCode}) => {
+const Form = ({selectedContact}) => {
+  const {firstName, lastName, number, street, city, postCode} = selectedContact;
+  const putContact = () => {
+    serialize(document.getElementById('form-contact'), {hash: true});
+  };
   return (
-    <div>
+    <from id="form-contact">
       <div className="form-line">
         <label for="lastName" className="form-label">Nom : </label>
         <input id="lastName" type="text" className="form-input" value={firstName}/>
@@ -27,8 +33,19 @@ const Form = ({firstName, lastName, number, street, city, postCode}) => {
         <label for="postCode" className="form-label">Code Postal : </label>
         <input id="postCode" type="text" className="form-input" value={postCode}/>
       </div>
-    </div>
+      <button onclick={putContact}>Mettre à Jour</button>
+    </from>
   );
 };
 
-return Form;
+Form.propTypes = {
+  selectedContact: PropTypes.object,
+}
+
+function select(state) {
+  return {
+    selectedContact: state.selectedContact,
+  }
+}
+
+export default connect(select)(Form);

@@ -1,6 +1,6 @@
 import reqwest from 'reqwest';
 import Store from './../Store';
-import {GET_CONTACTS, UPDATE_CONTACT} from './ACTIONS_ENUM';
+import {GET_CONTACTS, UPDATE_CONTACT, PUT_CONTACT} from './ACTIONS_ENUM';
 
 export function getContacts() {
   reqwest({
@@ -18,5 +18,17 @@ export function updateContact(idContact) {
   Store.dispatch({
     type: UPDATE_CONTACT,
     idContact: idContact,
+  });
+}
+
+export function putContact(contact) {
+  reqwest({
+    url: '/contacts',
+    success: (contact) => {
+      Store.dispatch({
+        type: PUT_CONTACT,
+        contact: contact,
+      });
+    },
   });
 }
