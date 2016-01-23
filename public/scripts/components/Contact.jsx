@@ -7,6 +7,7 @@ const Contact = ({id, firstName, lastName, number, street, city, postCode}) => {
 
   const clickUpdateContact = () => {
     updateContact(id);
+    location.hash = '#/contactList/editContact';
   };
 
   return (
