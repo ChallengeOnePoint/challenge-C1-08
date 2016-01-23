@@ -1,15 +1,9 @@
 const logger = require('winston');
-const addressBook = require('../data/addressBook.json');
 const Contact = require('../models/contact.js');
 
 module.exports = function(router) {
   router.get('/contacts', (req, res, next) => {
     logger.info('get contacts');
-    /* res.json(addressBook.map((address, i) => {
-      address._id = i;
-      return address;
-    })); */
-
     Contact.find({}, (err, docs) => {
       if (err) { return next(err); }
       res.json(docs);

@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const initDatabase = require('./init.js');
 const logger = require('winston');
 const mongoose = require('mongoose');
 const router = require('./router.js');
@@ -12,12 +13,13 @@ db.on('error', (e) => logger.error('connection error:', e));
 db.once('open', () => {
   // we're connected!
   logger.info('connected to database');
+  initDatabase();
 });
 
 // serve static files
 app.use(express.static(__dirname + '/dist'));
 
-// parse body 
+// parse body
 app.use(bodyParser.json());
 
 // serve routes
