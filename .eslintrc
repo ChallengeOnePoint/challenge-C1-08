@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb/base",
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "object-shorthand": 0,
+    "func-names": 0,
+    "space-before-function-paren": 0,
+    "new-cap": 0,
+    "object-curly-spacing": [
+      2,
+      "never"
+    ]
+  }
+}
