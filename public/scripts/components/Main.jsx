@@ -7,14 +7,12 @@ import ContactList from './ContactList.jsx';
 const Main = ({children}) => {
   return (
     <div className="main">
-      <ul className="header">
-        <a href="#/search"><li>
-          Search
-        </li></a>
-        <a href="#/contactList"><li>
-          Contact List
-        </li></a>
-      </ul>
+      <header className="centered-navigation" role="banner">
+        <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
+          <li className="nav-link"><a href="#/search">Search</a></li>
+          <li className="nav-link"><a href="#/contactList">Contact List</a></li>
+        </ul>
+      </header>
       {children}
     </div>
   );
