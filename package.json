@@ -14,7 +14,7 @@
     "test:browser": "webpack-dev-server --config webpack-test.config.js --port 8081",
     "watch:js": "nodemon -L --watch public -e jsx,js -x \"npm run test:ut && npm run jscs\"",
     "eslint": "./node_modules/.bin/eslint public",
-    "start": "node server.js"
+    "start": "node server/"
   },
   "dependencies": {
     "express": "4.13.4",
