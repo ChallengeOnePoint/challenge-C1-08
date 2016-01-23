@@ -18,6 +18,7 @@ const ContactList = ({contacts}) => {
     return (
       <Contact
         key={index}
+        id={index}
         number={number}
         street={street}
         city={city}
