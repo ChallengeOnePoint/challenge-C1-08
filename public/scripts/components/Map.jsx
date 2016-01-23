@@ -3,13 +3,8 @@ import ReactDOM from 'react-dom';
 
 class GoogleMap extends Component {
 
-  static propTypes = {
-    zoom: PropTypes.number,
-    instas: PropTypes.object,
-  };
-
   static defaultProps = {
-    initialZoom: 2,
+    initialZoom: 7,
     mapCenterLat: 20.860835,
     mapCenterLng: 2.341463,
   };
@@ -23,7 +18,7 @@ class GoogleMap extends Component {
     let mapOptions = {
       center: new google.maps.LatLng(this.props.mapCenterLat, this.props.mapCenterLng),
       zoom: this.props.initialZoom,
-      mapTypeId: google.maps.MapTypeId.SATELLITE
+      mapTypeId: google.maps.MapTypeId.SATELLITE,
     };
     this.map = new google.maps.Map(ReactDOM.findDOMNode(this), mapOptions);
     this.setState({map: this.map});
