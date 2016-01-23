@@ -1,5 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import React, {PropTypes} from 'react';
+import Map from './Map.jsx';
 import {updateContact} from './../actions/Action'
 /* eslint no-unused-vars: 1 */
 
@@ -18,6 +19,7 @@ const Contact = ({id, firstName, lastName, number, street, city, postCode}) => {
       </div>
       <div>
         <button onClick={clickUpdateContact}>Mettre à jour</button>
+        <Map />
       </div>
     </li>
   );

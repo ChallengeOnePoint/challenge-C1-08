@@ -4,6 +4,7 @@
 @import "base/base";
 @import "../../node_modules/normalize.scss/normalize";
 @import "./components/contacts";
+@import "./components/map";
 
 #body {
   @include outer-container;
