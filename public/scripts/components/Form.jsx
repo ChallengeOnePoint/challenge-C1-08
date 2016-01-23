@@ -1,27 +1,30 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import serialize from 'form-serialize';
+import assign from 'lodash/assign';
+import {putContact} from './../actions/Action';
 
 const Form = ({selectedContact}) => {
   const {firstname, lastname, number, street, city, postcode} = selectedContact;
-  const putContact = (event) => {
+  const onClickContact = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    console.log(serialize(document.getElementById('form-contact'), {hash: true}));
+    const objToSend = assign({}, selectedContact, serialize(document.getElementById('form-contact'), {hash: true}));
+    putContact(objToSend);
   };
-  const updateContact = (event) => {
+  const updateContact = event => {
+  };
 
-  };
   return (
     <form id="form-contact">
       <div className="form-line">
-        <label for="lastName" className="form-label">Nom : </label>
-        <input id="lastName" name="lastName" type="text" className="form-input" value={firstname}
+        <label for="lastname" className="form-label">Nom : </label>
+        <input id="lastname" name="lastname" type="text" className="form-input" value={firstname}
                onChange={updateContact}/>
       </div>
       <div className="form-line">
-        <label for="firstName" className="form-label">Prénom : </label>
-        <input id="firstName" name="firstName" type="text" className="form-input" value={lastname}
+        <label for="firstname" className="form-label">Prénom : </label>
+        <input id="firstname" name="firstname" type="text" className="form-input" value={lastname}
                onChange={updateContact}/>
       </div>
       <div className="form-line">
@@ -37,18 +40,18 @@ const Form = ({selectedContact}) => {
         <input id="city" name="city" type="text" className="form-input" value={city} onChange={updateContact}/>
       </div>
       <div className="form-line">
-        <label for="postCode" className="form-label">Code Postal : </label>
-        <input id="postCode" name="postCode" type="text" className="form-input" value={postcode}
+        <label for="postcode" className="form-label">Code Postal : </label>
+        <input id="postcode" name="postcode" type="text" className="form-input" value={postcode}
                onChange={updateContact}/>
       </div>
-      <div onClick={putContact}>Mettre à Jour</div>
+      <button onClick={onClickContact}>Mettre à Jour</button>
     </form>
   );
 };
 
 Form.propTypes = {
   selectedContact: PropTypes.object,
-}
+};
 
 function select(state) {
   return {

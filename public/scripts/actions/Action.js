@@ -24,6 +24,10 @@ export function updateContact(idContact) {
 export function putContact(contact) {
   reqwest({
     url: '/contacts',
+    type: 'json',
+    method: 'put',
+    contentType: 'application/json',
+    data: contact,
     success: (contact) => {
       Store.dispatch({
         type: PUT_CONTACT,

@@ -5,8 +5,9 @@ import Contact from './Contact.jsx';
 import {connect} from 'react-redux';
 
 const ContactList = ({contacts}) => {
-  const list = contacts.slice(0, 100).map((contact, index) => {
+  const list = contacts.slice(0, 10).map((contact) => {
     const {
+      _id,
       number,
       street,
       city,
@@ -17,8 +18,8 @@ const ContactList = ({contacts}) => {
 
     return (
       <Contact
-        key={index}
-        id={index}
+        key={_id}
+        id={_id}
         number={number}
         street={street}
         city={city}
