@@ -5,6 +5,13 @@ const mongoose = require('mongoose');
 const app = express();
 mongoose.connect('mongodb://localhost/contacts');
 
+const db = mongoose.connection;
+db.on('error', (e) => logger.error('connection error:', e));
+db.once('open', () => {
+  // we're connected!
+  logger.info('connected to database');
+});
+
 app.use(express.static(__dirname + '/dist'));
 
 app.get('/info', (req, res) => {
