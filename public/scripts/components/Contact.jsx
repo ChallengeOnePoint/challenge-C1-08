@@ -1,4 +1,6 @@
+/* eslint no-unused-vars: 0 */
 import React, {PropTypes} from 'react';
+/* eslint no-unused-vars: 1 */
 
 const Contact = ({firstName, lastName, number, street, city, postCode}) => {
   return (
