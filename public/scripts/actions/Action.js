@@ -1,14 +1,14 @@
 import reqwest from 'reqwest';
 import Store from './../Store';
-import {GET_INFOS} from './ACTIONS_ENUM';
+import {GET_CONTACTS} from './ACTIONS_ENUM';
 
-export function getInfo() {
+export function getContacts() {
   reqwest({
-    url: '/info',
+    url: '/contacts',
     success: (result) => {
       Store.dispatch({
-        type: GET_INFOS,
-        result: result,
+        type: GET_CONTACTS,
+        contacts: result,
       });
     },
   });

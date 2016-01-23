@@ -1,1 +1,1 @@
-export const GET_INFOS = 'GET_INFOS';
+export const GET_CONTACTS = 'GET_CONTACTS';

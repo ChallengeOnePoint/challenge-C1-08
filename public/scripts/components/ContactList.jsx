@@ -2,9 +2,10 @@
 import React, {PropTypes} from 'react';
 /* eslint no-unused-vars: 1 */
 import Contact from './Contact.jsx';
+import {connect} from 'react-redux'
 
 const ContactList = ({contacts}) => {
-  const list = contacts.map((contact) => {
+  const list = contacts.slice(0, 100).map((contact, index) => {
     const {
       number,
       street,
@@ -12,16 +13,17 @@ const ContactList = ({contacts}) => {
       postcode,
       firstname,
       lastname,
-    } = contact;
+      } = contact;
 
     return (
       <Contact
+        key={index}
         number={number}
         street={street}
         city={city}
-        postcode={postcode}
-        firstname={firstname}
-        lastname={lastname} />
+        postCode={postcode}
+        firstName={firstname}
+        lastName={lastname}/>
     );
   });
 
@@ -32,4 +34,14 @@ const ContactList = ({contacts}) => {
   );
 };
 
-export default ContactList;
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+}
+
+function select(state) {
+  return {
+    contacts: state.contacts,
+  }
+}
+
+export default connect(select)(ContactList);

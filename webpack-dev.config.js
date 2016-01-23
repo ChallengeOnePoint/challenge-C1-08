@@ -34,7 +34,7 @@ module.exports = {
     hot: true,
     proxy: [
       {
-        path: /\/info(.*)/,
+        path: /\/contacts(.*)/,
         target: 'http://localhost:3000/',
       },
     ],
