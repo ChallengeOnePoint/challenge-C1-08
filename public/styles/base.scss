@@ -3,7 +3,9 @@
 @import "neat/neat";
 @import "base/base";
 @import "../../node_modules/normalize.scss/normalize";
+@import "./components/contacts";
 
 #body {
   @include outer-container;
 }
+

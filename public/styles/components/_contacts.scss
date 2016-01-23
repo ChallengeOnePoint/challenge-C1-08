@@ -1,0 +1,12 @@
+.contacts {
+  &-line {
+    list-style: none;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+    &-label {
+      font-weight: bold;
+    }
+  }
+
+}

@@ -28,9 +28,9 @@ const ContactList = ({contacts}) => {
   });
 
   return (
-    <div className="ContactList">
+    <ul className="contacts">
       {list}
-    </div>
+    </ul>
   );
 };
 

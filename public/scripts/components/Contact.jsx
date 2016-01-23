@@ -4,10 +4,11 @@ import React, {PropTypes} from 'react';
 
 const Contact = ({firstName, lastName, number, street, city, postCode}) => {
   return (
-    <li>
-      <div>Nom : <span>{lastName}</span></div>
-      <div>Prénom : <span>{firstName}</span></div>
-      <div>Adresse : <span>{number}{street}{city}{postCode}</span></div>
+    <li className="contacts-line">
+      <div><span className="contacts-line-label">Nom</span> : <span>{lastName}</span></div>
+      <div><span className="contacts-line-label">Prénom</span> : <span>{firstName}</span></div>
+      <div><span className="contacts-line-label">Adresse</span> : <span>{number} {street} <br/> {postCode} {city}</span>
+      </div>
     </li>
   );
 };
